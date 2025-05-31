@@ -1,4 +1,57 @@
-# Medical Chatbot
+## Pinecone Vector Database
+
+### Detailed Pinecone Setup
+
+Pinecone is used as the vector database for storing and retrieving embeddings. Here's a comprehensive guide on setting it up:
+
+1. **Create a Pinecone Account**:
+   - Visit [Pinecone's website](https://www.pinecone.io/) and sign up for an account
+   - Verify your email and complete the registration process
+
+2. **Create an API Key**:
+   - Log in to your Pinecone console
+   - Navigate to "API Keys" in the left sidebar
+   - Click "Create API Key"
+   - Give your key a name (e.g., "medical-chatbot")
+   - Copy the API key and store it securely
+
+3. **No Need to Create Index Manually**:
+   - The `store_index.py` script will create the index for you automatically
+   - You only need to provide the API key in your `.env` file
+   - The script will create an index named `medicalbot` with the right parameters:
+     - **Dimensions**: `384` (matches the all-MiniLM-L6-v2 embedding model)
+     - **Metric**: `cosine` (for semantic search)
+     - **Serverless Spec**: Using AWS in us-east-1
+
+4. **Running the Indexing Script**:
+   - After setting up your `.env` file with the Pinecone API key
+   - Run `python store_index.py`
+   - This will create the index if it doesn't exist and populate it with embeddings
+   - Wait for the process to complete (this may take several minutes depending on your document size)
+
+5. **Understanding Serverless Plan Limits**:
+   - Free tier: 100,000 vectors (sufficient for testing)
+   - Vector count: Each chunk of text becomes one vector
+   - Monthly active vectors: Vectors that are queried/updated during the month
+   - Note your plan limits to avoid unexpected charges
+
+6. **Monitoring Usage**:
+   - In the Pinecone console, monitor:
+     - Vector count
+     - QPS (queries per second)
+     - Latency
+     - Storage used
+
+7. **Optimizing Costs**:
+   - Delete unused indexes
+   - Consider pod-based deployments for production if you have predictable workloads
+   - Use appropriate pod sizes based on your vector count and query needs
+
+8. **Troubleshooting Common Issues**:
+   - API key errors: Ensure the key is correctly copied to the `.env` file
+   - Dimension mismatch: If you change the embedding model, update the dimensions in `store_index.py`
+   - Rate limits: Free tier has QPS limitations
+   - Connection timeouts: Check your network and Pinecone status# Medical Chatbot
 
 An end-to-end medical chatbot using Retrieval Augmented Generation (RAG) with LangChain, Pinecone, and OpenAI.
 
@@ -75,7 +128,18 @@ End_to_End_Medical_Chatbot/
    pip install -r requirements.txt
    ```
 
-5. Create a `.env` file with your API keys:
+5. Set up Pinecone:
+   - Create a Pinecone account at [https://www.pinecone.io/](https://www.pinecone.io/)
+   - Log in to your account and navigate to the API Keys section
+   - Create a new API key and copy it
+   - You don't need to manually create an index - the `store_index.py` script will handle this automatically
+
+6. Set up OpenAI API:
+   - Create an OpenAI account at [https://platform.openai.com/](https://platform.openai.com/)
+   - Navigate to the API keys section
+   - Create a new API key and copy it
+
+7. Create a `.env` file with your API keys:
    ```
    PINECONE_API_KEY=your_pinecone_api_key
    OPENAI_API_KEY=your_openai_api_key
@@ -133,12 +197,9 @@ End_to_End_Medical_Chatbot/
 
 ## Deployment
 
-To deploy the application to AWS:
+This application can be deployed to various cloud platforms like AWS, Azure, or Google Cloud. Deployment instructions will be added in a future update as the project evolves.
 
-1. Set up an EC2 instance with appropriate security groups
-2. Install required dependencies on the instance
-3. Configure environment variables for API keys
-4. Run the application with Gunicorn or uWSGI behind Nginx
+For now, the application can be run locally as described in the Usage section.
 
 ## Credits
 
