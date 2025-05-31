@@ -1,0 +1,23 @@
+# Core LLM and embeddings
+transformers[torch]
+sentence-transformers==4.1.0
+langchain==0.3.25
+langchain-openai==0.3.18
+langchain-community==0.3.24
+langchain-experimental==0.3.4
+langchain-pinecone==0.2.6
+
+# Vector database
+pinecone-client[grpc]==6.0.0
+
+# Web framework and utilities
+flask==3.1.1
+pypdf==5.5.0
+python-dotenv==1.1.0
+
+# For efficient data processing
+numpy==2.2.6
+pandas==2.2.3
+
+# for making local folder as Package also (otherwise `src` will not work)
+-e .

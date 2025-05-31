@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=42.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "End_to_End_Medical_Chatbot"
+version = "0.0.0"
+authors = [
+    {name = "Rohit Bharti", email = "rohit.bharti8211@gmail.com"},
+]
+description = "An end-to-end medical chatbot using generative AI"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/yourusername/End_to_End_Medical_Chatbot"
+"Bug Tracker" = "https://github.com/yourusername/End_to_End_Medical_Chatbot/issues"
+
+[tool.setuptools]
+packages = {find = {}}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 88
