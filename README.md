@@ -1,58 +1,3 @@
-## Pinecone Vector Database
-
-### Detailed Pinecone Setup
-
-Pinecone is used as the vector database for storing and retrieving embeddings. Here's a comprehensive guide on setting it up:
-
-1. **Create a Pinecone Account**:
-   - Visit [Pinecone's website](https://www.pinecone.io/) and sign up for an account
-   - Verify your email and complete the registration process
-
-2. **Create an API Key**:
-   - Log in to your Pinecone console
-   - Navigate to "API Keys" in the left sidebar
-   - Click "Create API Key"
-   - Give your key a name (e.g., "medical-chatbot")
-   - Copy the API key and store it securely
-
-3. **No Need to Create Index Manually**:
-   - The `store_index.py` script will create the index for you automatically
-   - You only need to provide the API key in your `.env` file
-   - The script will create an index named `medicalbot` with the right parameters:
-     - **Dimensions**: `384` (matches the all-MiniLM-L6-v2 embedding model)
-     - **Metric**: `cosine` (for semantic search)
-     - **Serverless Spec**: Using AWS in us-east-1
-
-4. **Running the Indexing Script**:
-   - After setting up your `.env` file with the Pinecone API key
-   - Run `python store_index.py`
-   - This will create the index if it doesn't exist and populate it with embeddings
-   - Wait for the process to complete (this may take several minutes depending on your document size)
-
-5. **Understanding Serverless Plan Limits**:
-   - Free tier: 100,000 vectors (sufficient for testing)
-   - Vector count: Each chunk of text becomes one vector
-   - Monthly active vectors: Vectors that are queried/updated during the month
-   - Note your plan limits to avoid unexpected charges
-
-6. **Monitoring Usage**:
-   - In the Pinecone console, monitor:
-     - Vector count
-     - QPS (queries per second)
-     - Latency
-     - Storage used
-
-7. **Optimizing Costs**:
-   - Delete unused indexes
-   - Consider pod-based deployments for production if you have predictable workloads
-   - Use appropriate pod sizes based on your vector count and query needs
-
-8. **Troubleshooting Common Issues**:
-   - API key errors: Ensure the key is correctly copied to the `.env` file
-   - Dimension mismatch: If you change the embedding model, update the dimensions in `store_index.py`
-   - Rate limits: Free tier has QPS limitations
-   - Connection timeouts: Check your network and Pinecone status# Medical Chatbot
-
 An end-to-end medical chatbot using Retrieval Augmented Generation (RAG) with LangChain, Pinecone, and OpenAI.
 
 ![Medical Chatbot](https://cdn-icons-png.flaticon.com/512/387/387569.png)
@@ -129,10 +74,60 @@ End_to_End_Medical_Chatbot/
    ```
 
 5. Set up Pinecone:
-   - Create a Pinecone account at [https://www.pinecone.io/](https://www.pinecone.io/)
-   - Log in to your account and navigate to the API Keys section
-   - Create a new API key and copy it
-   - You don't need to manually create an index - the `store_index.py` script will handle this automatically
+## Pinecone Vector Database
+
+### Detailed Pinecone Setup
+
+Pinecone is used as the vector database for storing and retrieving embeddings. Here's a comprehensive guide on setting it up:
+
+1. **Create a Pinecone Account**:
+   - Visit [Pinecone's website](https://www.pinecone.io/) and sign up for an account
+   - Verify your email and complete the registration process
+
+2. **Create an API Key**:
+   - Log in to your Pinecone console
+   - Navigate to "API Keys" in the left sidebar
+   - Click "Create API Key"
+   - Give your key a name (e.g., "medical-chatbot")
+   - Copy the API key and store it securely
+
+3. **No Need to Create Index Manually**:
+   - The `store_index.py` script will create the index for you automatically
+   - You only need to provide the API key in your `.env` file
+   - The script will create an index named `medicalbot` with the right parameters:
+     - **Dimensions**: `384` (matches the all-MiniLM-L6-v2 embedding model)
+     - **Metric**: `cosine` (for semantic search)
+     - **Serverless Spec**: Using AWS in us-east-1
+
+4. **Running the Indexing Script**:
+   - After setting up your `.env` file with the Pinecone API key
+   - Run `python store_index.py`
+   - This will create the index if it doesn't exist and populate it with embeddings
+   - Wait for the process to complete (this may take several minutes depending on your document size)
+
+5. **Understanding Serverless Plan Limits**:
+   - Free tier: 100,000 vectors (sufficient for testing)
+   - Vector count: Each chunk of text becomes one vector
+   - Monthly active vectors: Vectors that are queried/updated during the month
+   - Note your plan limits to avoid unexpected charges
+
+6. **Monitoring Usage**:
+   - In the Pinecone console, monitor:
+     - Vector count
+     - QPS (queries per second)
+     - Latency
+     - Storage used
+
+7. **Optimizing Costs**:
+   - Delete unused indexes
+   - Consider pod-based deployments for production if you have predictable workloads
+   - Use appropriate pod sizes based on your vector count and query needs
+
+8. **Troubleshooting Common Issues**:
+   - API key errors: Ensure the key is correctly copied to the `.env` file
+   - Dimension mismatch: If you change the embedding model, update the dimensions in `store_index.py`
+   - Rate limits: Free tier has QPS limitations
+   - Connection timeouts: Check your network and Pinecone status
 
 6. Set up OpenAI API:
    - Create an OpenAI account at [https://platform.openai.com/](https://platform.openai.com/)
