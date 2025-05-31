@@ -55,6 +55,11 @@ list_of_files = [
     "tests/test_embeddings.py",       # Tests for embedding functionality
     "tests/test_pinecone.py",         # Tests for Pinecone operations
     "test.py"                         # General test script
+    
+    # Web Interface
+    "static/style.css"
+    "templates/chat.html"
+    
 ]
 
 

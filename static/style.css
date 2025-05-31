@@ -1,0 +1,320 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background: #1a2a3a;
+    background: linear-gradient(135deg, #1e3c72, #2a5298, #2c3e50);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background 0.5s ease;
+}
+
+.chat {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.card {
+    height: 600px;
+    border-radius: 20px !important;
+    background-color: rgba(15, 23, 42, 0.7) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px);
+}
+
+.msg_card_body {
+    overflow-y: auto;
+    padding: 15px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.msg_card_body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.msg_card_body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.msg_card_body::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.card-header {
+    border-radius: 20px 20px 0 0 !important;
+    border-bottom: 0 !important;
+    background-color: rgba(14, 20, 33, 0.8) !important;
+    padding: 20px;
+}
+
+.card-footer {
+    border-radius: 0 0 20px 20px !important;
+    border-top: 0 !important;
+    background-color: rgba(14, 20, 33, 0.8) !important;
+    padding: 15px;
+}
+
+.container {
+    align-content: center;
+}
+
+.type_msg {
+    background-color: rgba(24, 37, 56, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    height: 60px !important;
+    overflow-y: auto;
+    border-radius: 25px 0 0 25px !important;
+    padding-left: 20px;
+    transition: all 0.3s ease;
+}
+
+.type_msg:focus {
+    box-shadow: 0 0 15px rgba(78, 115, 223, 0.5) !important;
+    outline: 0px !important;
+    background-color: rgba(30, 45, 65, 0.8) !important;
+}
+
+.send_btn {
+    border-radius: 0 25px 25px 0 !important;
+    background-color: #4a7bda !important;
+    border: 0 !important;
+    color: white !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.send_btn:hover {
+    background-color: #3a67c4 !important;
+    transform: scale(1.05);
+}
+
+.user_img {
+    height: 70px;
+    width: 70px;
+    border: 2px solid #f5f6fa;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.user_img_msg {
+    height: 40px;
+    width: 40px;
+    border: 1.5px solid #f5f6fa;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.img_cont {
+    position: relative;
+    height: 70px;
+    width: 70px;
+}
+
+.img_cont_msg {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.online_icon {
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: #4cd137;
+    border-radius: 50%;
+    bottom: 0.2em;
+    right: 0.4em;
+    border: 1.5px solid white;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(76, 209, 55, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(76, 209, 55, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(76, 209, 55, 0);
+    }
+}
+
+.offline {
+    background-color: #c23616 !important;
+}
+
+.user_info {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 15px;
+}
+
+.user_info span {
+    font-size: 24px;
+    color: white;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.user_info p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.msg_cotainer {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #4a7bda, #5e89e4);
+    padding: 15px;
+    position: relative;
+    max-width: 80%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    animation: fadeIn 0.5s;
+}
+
+.msg_cotainer_send {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #42b883, #59d399);
+    padding: 15px;
+    position: relative;
+    max-width: 80%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.msg_time {
+    position: absolute;
+    left: 5px;
+    bottom: -20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 10px;
+}
+
+.msg_time_send {
+    position: absolute;
+    right: 5px;
+    bottom: -20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 10px;
+}
+
+/* Typing animation */
+.typing {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.typing .dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
+    background-color: #f5f6fa;
+    border-radius: 50%;
+    animation: typing 1.5s infinite ease-in-out;
+}
+
+.typing .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 60%, 100% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Mobile responsiveness */
+@media(max-width: 576px) {
+    .card {
+        height: 100vh;
+        border-radius: 0 !important;
+    }
+    
+    .card-header, .card-footer {
+        border-radius: 0 !important;
+    }
+    
+    .chat {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    
+    .msg_cotainer, .msg_cotainer_send {
+        max-width: 75%;
+    }
+}
+
+/* For medium-sized screens */
+@media(min-width: 577px) and (max-width: 992px) {
+    .card {
+        height: 550px;
+    }
+}
+
+/* Adjustments for larger screens */
+@media(min-width: 1200px) {
+    .container-fluid {
+        padding: 40px;
+    }
+}
+
+/* Dark mode toggle if you want to add it */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(30deg);
+}

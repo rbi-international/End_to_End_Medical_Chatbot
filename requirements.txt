@@ -6,6 +6,7 @@ langchain-openai==0.3.18
 langchain-community==0.3.24
 langchain-experimental==0.3.4
 langchain-pinecone==0.2.6
+langchain-huggingface==0.2.0
 
 # Vector database
 pinecone-client[grpc]==6.0.0
